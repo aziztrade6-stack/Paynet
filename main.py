@@ -7,8 +7,8 @@ from aiohttp import web
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 
-# Botingiz tokeni
-API_TOKEN = "8823420781:AAHUt1Aero1zdNb2c46N8BcYWJUQ2-wlC9w"  # <-- BotFather bergan haqiqiy tokenni yozing
+# Botingiz tokeni (BotFather bergan haqiqiy tokenni qoldiring)
+API_TOKEN = "8823420781:AAHUt1Aero1zdNb2c46N8BcYWJUQ2-wlC9w"
 
 logging.basicConfig(level=logging.INFO)
 
@@ -53,7 +53,7 @@ async def start_handler(message: types.Message):
         "Xush kelibsiz!\n\n"
         "Pul qabul qilganda shunchaki summani yozib yuboring (masalan: `50000` yoki `35000 karta`).\n\n"
         "Buyruqlar:\n"
-        "/stat - Jami tushum va qabul qilingan to'lovlar soni\n"
+        "/stat - Jami tushum va to'lovlar soni\n"
         "/reset - Hisobni noldan boshlash",
         parse_mode="Markdown"
     )
@@ -95,9 +95,8 @@ async def process_income(message: types.Message):
     else:
         await message.answer("Iltimos, summani raqam bilan yozing (masalan: `50000`).")
 
-# Server doim ochiq turishi uchun dummy web server
 async def handle_ping(request):
-    return web.Response(text="Bot ishlayapti!")
+    return web.Response(text="Bot faol ishlamoqda!")
 
 async def start_web_server():
     app = web.Application()
@@ -114,4 +113,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-  
+    
